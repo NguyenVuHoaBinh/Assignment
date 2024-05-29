@@ -1,0 +1,208 @@
+version: '3.8'
+services:
+  #Initialize zookeeper
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000                                       # Heartbeat(ms)
+      ZOOKEEPER_INIT_LIMIT: 5                                         # Specify the maximum number of tick intervals a follower can take to initialize with the leader
+      ZOOKEEPER_SYNC_LIMIT: 2                                         # Specify the maximum number of tick intervals that can pass between sending a request and receiving an acknowledgment.
+    ports:
+      - "2181:2181"
+    container_name: zookeeper_1
+    healthcheck:
+      test: nc -z zookeeper 2181 || exit -1                                                         # Check if port 2182 is open
+      start_period: 15s                                                                             # Defines the period to wait before starting to perform health checks.
+      interval: 5s
+      timeout: 10s                                                                                  # Specifies the maximum time allowed for a single health check to complete, longer than this will be considdered as fail.
+      retries: 10                                                                                   # Determines the number of consecutive failures needed to mark the service as unhealthy
+
+  broker_01:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      zookeeper:
+        condition: service_healthy                                                                  # Initialize broker_01 after zookeeper is confirmed healthy
+    container_name: broker_01
+    environment:
+      KAFKA_BROKER_ID: 1                                                                            # Assigns a unique ID to each Kafka broker
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181                                                       # This tells the Kafka broker how to connect to Zookeeper, which is used for managing cluster metadata and leader election.
+      KAFKA_LISTENERS: PLAINTEXT_HOST://broker_01:9092,PLAINTEXT://broker_01:9093                   # Specifies the protocols and ports the broker will use to listen for connections from clients and other brokers
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT_HOST://localhost:9092,PLAINTEXT://broker_01:9093        # These are the addresses that clients will use to connect to the broker.
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT            # Defines the security protocol to use for each listener name
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT                                                   # Specifies which listener should be used for communication between brokers in the cluster
+      KAFKA_JMX_PORT: 9090                                                                          # This port is used for JMX monitoring and management of the Kafka broker
+      KAFKA_LOG_DIRS: /var/lib/kafka/data                                                           # Kafka stores its data in these directories. Each log directory should be on a separate disk for better performance
+      KAFKA_NUM_PARTITIONS: 2                                                                       #  This value determines how many partitions are created by default when a new topic is created
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1                                                     # The offsets topic stores consumer offsets. This setting determines how many replicas of this topic are maintained across the cluster
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1                                                        # This is the minimum number of replicas that must acknowledge a write for it to be considered successful. This ensures durability and consistency of transactional state.
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1                                             # This determines how many replicas of the transaction state log are maintained. A higher replication factor increases fault tolerance
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100                                                   # This delay helps to avoid too frequent rebalancing, which can be expensive in terms of performance
+      CONFLUENT_METRICS_ENABLE: 'false'
+    ports:
+      - 9092:9092
+    healthcheck:
+      test: nc -z broker_01 9092 || exit -1
+      start_period: 15s
+      interval: 5s
+      timeout: 10s
+      retries: 10  
+
+  broker_02:
+      image: confluentinc/cp-kafka:latest
+      depends_on:
+        zookeeper:
+          condition: service_healthy
+      container_name: broker_02
+      environment:
+        KAFKA_BROKER_ID: 2
+        KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+        KAFKA_LISTENERS: PLAINTEXT_HOST://broker_02:9094,PLAINTEXT://broker_02:9093
+        KAFKA_ADVERTISED_LISTENERS: PLAINTEXT_HOST://localhost:9094,PLAINTEXT://broker_02:9093
+        KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+        KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+        KAFKA_JMX_PORT: 9090
+        KAFKA_LOG_DIRS: /var/lib/kafka/data
+        KAFKA_NUM_PARTITIONS: 2
+        KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+        KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+        KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+        KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+        KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
+        CONFLUENT_METRICS_ENABLE: 'false'
+      ports:
+        - 9094:9094
+      healthcheck:
+        test: nc -z broker_02 9094 || exit -1
+        start_period: 15s
+        interval: 5s
+        timeout: 10s
+        retries: 10
+
+  kc01:
+    image: confluentinc/cp-kafka-connect:latest
+    container_name: kc01
+    ports:
+      - 8083:8083
+    depends_on:
+      broker_01:
+        condition: service_healthy
+      broker_02:
+        condition: service_healthy
+      # schema-registry:
+      #   condition: service_healthy
+    volumes:
+      - ./connectors:/home/appuser/connectors
+      - ./libs:/home/appuser/libs
+    environment:
+      CLASSPATH: /home/appuser/libs/*
+      CONNECT_BOOTSTRAP_SERVERS: "broker01:9093,broker02:9093"
+      CONNECT_REST_ADVERTISED_HOST_NAME: "kc01"
+      CONNECT_REST_PORT: 8083
+      CONNECT_GROUP_ID: kafka-connect-vdt
+      CONNECT_CONFIG_STORAGE_TOPIC: _kafka-connect-configs
+      CONNECT_OFFSET_STORAGE_TOPIC: _kafka-connect-offsets
+      CONNECT_STATUS_STORAGE_TOPIC: _kafka-connect-status
+      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      CONNECT_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      # CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      # CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_LOG4J_ROOT_LOGLEVEL: "INFO"
+      CONNECT_LOG4J_LOGGERS: "org.apache.kafka.connect.runtime.rest=WARN,org.reflections=ERROR"
+      CONNECT_LOG4J_APPENDER_STDOUT_LAYOUT_CONVERSIONPATTERN: "[%d] %p %X{connector.context}%m (%c:%L)%n"
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_PLUGIN_PATH: '/usr/share/java,/usr/share/confluent-hub-components/,/home/appuser/connectors/'
+    command: 
+      - bash
+      - -c
+      - |
+        # Run kafka
+        echo "Launching Kafka Connect worker"
+        /etc/confluent/docker/run &
+        #
+        sleep infinity
+    healthcheck:
+      test: nc -z kc01 8083 || exit -1
+      start_period: 15s
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  
+  kc02:
+    image: confluentinc/cp-kafka-connect:latest
+    container_name: kc02
+    ports:
+      - 8093:8083
+    depends_on:
+      broker_01:
+        condition: service_healthy
+      broker_02:
+        condition: service_healthy
+      # schema-registry:
+      #   condition: service_healthy
+    volumes:
+      - ./connectors:/home/appuser/connectors
+      - ./libs:/home/appuser/libs
+    environment:
+      CLASSPATH: /home/appuser/libs/*
+      CONNECT_BOOTSTRAP_SERVERS: "broker01:9093,broker02:9093"
+      CONNECT_REST_ADVERTISED_HOST_NAME: "kc02"
+      CONNECT_REST_PORT: 8083
+      CONNECT_GROUP_ID: kafka-connect-vdt
+      CONNECT_CONFIG_STORAGE_TOPIC: _kafka-connect-configs
+      CONNECT_OFFSET_STORAGE_TOPIC: _kafka-connect-offsets
+      CONNECT_STATUS_STORAGE_TOPIC: _kafka-connect-status
+      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      CONNECT_VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      # CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      # CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
+      CONNECT_LOG4J_ROOT_LOGLEVEL: "INFO"
+      CONNECT_LOG4J_LOGGERS: "org.apache.kafka.connect.runtime.rest=WARN,org.reflections=ERROR"
+      CONNECT_LOG4J_APPENDER_STDOUT_LAYOUT_CONVERSIONPATTERN: "[%d] %p %X{connector.context}%m (%c:%L)%n"
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_PLUGIN_PATH: '/usr/share/java,/usr/share/confluent-hub-components/,/home/appuser/connectors/'
+    command: 
+      - bash
+      - -c
+      - |
+        # Run kafka
+        echo "Launching Kafka Connect worker"
+        /etc/confluent/docker/run &
+        #
+        sleep infinity
+    healthcheck:
+      test: nc -z kc02 8083 || exit -1
+      start_period: 15s
+      interval: 5s
+      timeout: 10s
+      retries: 10
+
+  kafka-ui:
+    container_name: kafka-ui_1
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 8080:8080
+    depends_on:
+      broker_01:
+        condition: service_healthy
+      broker_02:
+        condition: service_healthy
+    environment:
+      KAFKA_CLUSTERS_0_NAME: vdt-kafka-cluster
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: broker_01:9093,broker_02:9093
+      KAFKA_CLUSTERS_0_METRICS_PORT: 9090
+    healthcheck:
+      test: nc -z kafka-ui 8080 || exit -1
+      start_period: 15s
+      interval: 5s
+      timeout: 10s
+      retries: 10
