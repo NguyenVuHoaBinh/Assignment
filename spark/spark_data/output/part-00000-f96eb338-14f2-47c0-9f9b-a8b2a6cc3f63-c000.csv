@@ -1,0 +1,290 @@
+date,student_name,activity,totalFile
+20240615,Nguyễn Minh Quân,execute,7
+20240612,Vũ Khắc Long,execute,11
+20240610,Châu Minh Khải,execute,14
+20240612,Lê Bảo Khánh,execute,4
+20240613,Châu Minh Khải,execute,13
+20240610,Nguyễn Minh Tuấn,execute,13
+20240611,Nguyễn Địch Nhật Minh,execute,2
+20240615,Trần Phúc Mạnh Linh,execute,19
+20240610,Vũ Khắc Long,execute,13
+20240615,Lê Minh Phúc,execute,8
+20240610,Lê Bảo Khánh,execute,3
+20240614,Lương Thị Mai Phương,execute,15
+20240612,Trần Phúc Mạnh Linh,execute,15
+20240615,Huỳnh Đoan Hồ,execute,13
+20240615,Châu Minh Khải,execute,2
+20240615,Vũ Hữu Sỹ,execute,9
+20240615,Đào Anh Vũ,execute,6
+20240610,Nguyễn Thị Thùy Trang,execute,1
+20240611,Vũ Hữu Sỹ,execute,9
+20240611,Trần Phúc Mạnh Linh,execute,10
+20240610,Huỳnh Tấn Lộc,execute,6
+20240612,Đào Thanh Nguyên,execute,9
+20240614,Nguyễn Địch Nhật Minh,execute,5
+20240613,Lương Thị Mai Phương,execute,3
+20240612,Nguyễn Thị Thùy Trang,execute,10
+20240614,Nguyễn Quốc Dũng,execute,2
+20240614,Đào Thanh Nguyên,execute,15
+20240612,Ngô Phi Hùng,execute,4
+20240611,Đường Minh Quân,execute,5
+20240611,Đinh Việt Thành,execute,16
+20240615,Đinh Việt Thành,execute,10
+20240610,Vũ Hữu Sỹ,execute,6
+20240614,Nguyễn Duy Hưng,execute,8
+20240611,Vũ Khắc Long,execute,3
+20240611,Nguyễn Bá Thiêm,execute,6
+20240614,Phùng Huy Quang,execute,10
+20240615,Nguyễn Địch Nhật Minh,execute,16
+20240611,Huỳnh Minh Tú,execute,10
+20240612,Châu Minh Khải,execute,3
+20240614,Nguyễn Minh Hiếu,execute,26
+20240610,Nguyễn Bá Thiêm,execute,1
+20240610,Đào Thanh Nguyên,execute,5
+20240613,Đường Minh Quân,execute,17
+20240614,Tạ Đức Tiến,execute,5
+20240615,Đường Minh Quân,execute,1
+20240610,Huỳnh Đoan Hồ,execute,14
+20240613,Tạ Đức Tiến,execute,10
+20240613,Vũ Hữu Sỹ,execute,7
+20240615,Tạ Đức Tiến,execute,9
+20240613,Nguyễn Duy Hưng,execute,8
+20240615,Lê Bảo Khánh,execute,15
+20240613,Đào Thanh Nguyên,execute,6
+20240611,Ngô Phi Hùng,execute,12
+20240610,Tạ Đức Tiến,execute,4
+20240612,Đào Anh Vũ,execute,9
+20240610,Nguyễn Hoài Nam,execute,10
+20240614,Đường Minh Quân,execute,6
+20240615,Phùng Huy Quang,execute,4
+20240611,Nguyễn Quốc Dũng,execute,4
+20240610,Nguyễn Duy Hưng,execute,2
+20240614,Châu Minh Khải,execute,8
+20240610,Đinh Việt Thành,execute,5
+20240612,Nguyễn Hoài Nam,execute,18
+20240614,Nguyễn Hoài Nam,execute,8
+20240610,Đào Anh Vũ,execute,9
+20240613,Đào Anh Vũ,execute,1
+20240613,Nguyễn Bá Thiêm,execute,1
+20240613,Huỳnh Đoan Hồ,execute,6
+20240610,Lương Thị Mai Phương,execute,1
+20240610,Đường Minh Quân,execute,4
+20240612,Huỳnh Đoan Hồ,execute,7
+20240612,Ngô Ngọc Tuấn Anh,execute,9
+20240613,Đỗ Doãn Khắc,execute,9
+20240614,Lê Bảo Khánh,execute,5
+20240612,Đỗ Doãn Khắc,execute,7
+20240615,Trần Ngọc Bảo,execute,5
+20240614,Đỗ Doãn Khắc,execute,9
+20240613,Huỳnh Minh Tú,execute,4
+20240614,Trần Ngọc Bảo,execute,12
+20240614,Đỗ Thành Đạt,execute,6
+20240611,Dương Quang Giang,execute,16
+20240612,Dương Quang Giang,execute,9
+20240611,Phùng Huy Quang,execute,4
+20240610,Trần Ngọc Bảo,execute,5
+20240613,Ngô Ngọc Tuấn Anh,execute,9
+20240610,Ngô Ngọc Tuấn Anh,execute,4
+20240611,Nguyễn Thành Đạt,execute,10
+20240614,Trần Trung Anh,execute,2
+20240613,Trần Trung Anh,execute,8
+20240611,Trần Trung Anh,execute,7
+20240612,Nguyễn Khoa Đoàn,execute,4
+20240613,Trần Ngọc Bảo,execute,6
+20240611,Đỗ Thành Đạt,execute,6
+20240614,Nguyễn Khoa Đoàn,execute,1
+20240614,Nguyễn Vũ Hòa Bình,execute,1
+20240611,Nguyễn Vũ Hòa Bình,execute,1
+20240613,Đỗ Thành Đạt,execute,1
+20240611,Ngô Phi Hùng,write,18
+20240612,Trần Phúc Mạnh Linh,write,9
+20240611,Đào Anh Vũ,write,7
+20240612,Nguyễn Minh Hiếu,write,10
+20240611,Đường Minh Quân,write,7
+20240613,Tạ Đức Tiến,write,11
+20240614,Nguyễn Quốc Dũng,write,8
+20240612,Trần Ngọc Bảo,execute,9
+20240610,Nguyễn Hoài Nam,write,10
+20240613,Nguyễn Minh Tuấn,write,5
+20240612,Nguyễn Mai Anh,execute,1
+20240611,Huỳnh Đoan Hồ,write,4
+20240613,Nguyễn Hoài Nam,write,8
+20240611,Vũ Hữu Sỹ,write,3
+20240610,Đường Minh Quân,write,5
+20240615,Huỳnh Tấn Lộc,write,13
+20240612,Lê Bảo Khánh,write,11
+20240610,Nguyễn Đình Thiên Huy,write,8
+20240615,Nguyễn Hoài Nam,write,16
+20240611,Nguyễn Thị Thùy Trang,write,7
+20240611,Nguyễn Bá Thiêm,write,9
+20240615,Lê Bảo Khánh,write,4
+20240612,Châu Minh Khải,write,3
+20240611,Trần Phúc Mạnh Linh,write,4
+20240612,Đào Thanh Nguyên,write,4
+20240614,Huỳnh Tấn Lộc,write,9
+20240610,Phùng Huy Quang,write,6
+20240611,Lê Minh Phúc,write,5
+20240612,Nguyễn Minh Quân,write,6
+20240614,Vũ Khắc Long,write,10
+20240610,Phạm Đình Khôi,write,1
+20240613,Lương Thị Mai Phương,write,10
+20240613,Nguyễn Quốc Dũng,write,7
+20240612,Lương Thị Mai Phương,write,9
+20240611,Phạm Đình Khôi,write,7
+20240610,Đào Thanh Nguyên,write,5
+20240613,Nguyễn Minh Hiếu,write,8
+20240615,Nguyễn Minh Hiếu,write,12
+20240610,Đào Anh Vũ,write,5
+20240613,Nguyễn Địch Nhật Minh,write,12
+20240614,Nguyễn Thị Thùy Trang,write,7
+20240610,Nguyễn Bá Thiêm,write,6
+20240613,Lê Minh Phúc,write,9
+20240613,Vũ Khắc Long,write,6
+20240615,Nguyễn Bá Thiêm,write,10
+20240614,Ngô Phi Hùng,write,8
+20240611,Đào Thanh Nguyên,write,12
+20240611,Nguyễn Minh Tuấn,write,5
+20240614,Lê Minh Phúc,write,13
+20240615,Đường Minh Quân,write,7
+20240612,Nguyễn Địch Nhật Minh,write,8
+20240615,Nguyễn Địch Nhật Minh,write,4
+20240611,Huỳnh Minh Tú,write,10
+20240615,Nguyễn Quốc Dũng,write,2
+20240615,Nguyễn Minh Tuấn,write,10
+20240614,Đường Minh Quân,write,5
+20240613,Phùng Huy Quang,write,6
+20240610,Nguyễn Minh Quân,write,9
+20240610,Huỳnh Đoan Hồ,write,1
+20240613,Huỳnh Minh Tú,write,9
+20240613,Đường Minh Quân,write,4
+20240614,Phạm Đình Khôi,write,5
+20240612,Huỳnh Tấn Lộc,write,2
+20240615,Huỳnh Đoan Hồ,write,7
+20240613,Nguyễn Đình Thiên Huy,write,3
+20240612,Nguyễn Duy Hưng,write,4
+20240611,Nguyễn Minh Hiếu,write,8
+20240610,Nguyễn Quốc Dũng,write,5
+20240614,Huỳnh Đoan Hồ,write,3
+20240610,Nguyễn Minh Tuấn,write,4
+20240612,Nguyễn Duy Hưng,read,6
+20240610,Phạm Đình Khôi,read,15
+20240612,Tạ Đức Tiến,write,5
+20240611,Nguyễn Hoài Nam,write,6
+20240612,Phùng Huy Quang,write,1
+20240615,Châu Minh Khải,write,1
+20240613,Đào Thanh Nguyên,write,8
+20240613,Châu Minh Khải,write,4
+20240615,Nguyễn Thị Thùy Trang,read,9
+20240611,Lê Bảo Khánh,write,18
+20240610,Nguyễn Thị Thùy Trang,write,1
+20240610,Đỗ Doãn Khắc,write,1
+20240614,Nguyễn Đình Thiên Huy,read,1
+20240614,Nguyễn Hoài Nam,read,8
+20240611,Nguyễn Minh Quân,read,10
+20240612,Huỳnh Minh Tú,read,6
+20240612,Phùng Huy Quang,read,12
+20240610,Châu Minh Khải,read,6
+20240613,Đào Thanh Nguyên,read,3
+20240611,Đào Anh Vũ,read,10
+20240613,Tạ Đức Tiến,read,12
+20240611,Đinh Việt Thành,read,7
+20240615,Trần Phúc Mạnh Linh,read,1
+20240610,Phùng Huy Quang,read,1
+20240613,Nguyễn Thị Thùy Trang,read,1
+20240612,Lê Minh Phúc,read,4
+20240613,Phùng Huy Quang,read,7
+20240614,Tạ Đức Tiến,read,9
+20240612,Nguyễn Bá Thiêm,read,5
+20240612,Đường Minh Quân,read,8
+20240612,Tạ Đức Tiến,read,2
+20240611,Tạ Đức Tiến,read,1
+20240614,Vũ Khắc Long,read,5
+20240615,Đào Anh Vũ,read,10
+20240612,Nguyễn Hoài Nam,read,12
+20240610,Đào Thanh Nguyên,read,12
+20240612,Trần Phúc Mạnh Linh,read,5
+20240610,Nguyễn Minh Hiếu,read,8
+20240610,Nguyễn Đình Thiên Huy,read,1
+20240610,Huỳnh Tấn Lộc,read,11
+20240615,Nguyễn Bá Thiêm,read,4
+20240613,Nguyễn Đình Thiên Huy,read,3
+20240614,Trần Phúc Mạnh Linh,read,10
+20240615,Huỳnh Minh Tú,read,1
+20240614,Lương Thị Mai Phương,read,14
+20240610,Tạ Đức Tiến,read,9
+20240612,Châu Minh Khải,read,15
+20240612,Huỳnh Đoan Hồ,read,7
+20240614,Phùng Huy Quang,read,6
+20240614,Huỳnh Đoan Hồ,read,9
+20240612,Vũ Hữu Sỹ,read,4
+20240611,Huỳnh Đoan Hồ,read,8
+20240613,Huỳnh Minh Tú,read,11
+20240614,Lê Bảo Khánh,read,1
+20240611,Lê Bảo Khánh,read,9
+20240613,Châu Minh Khải,read,1
+20240613,Phạm Đình Khôi,read,8
+20240612,Phạm Đình Khôi,read,6
+20240612,Nguyễn Quốc Dũng,read,8
+20240615,Lê Minh Phúc,read,5
+20240610,Vũ Khắc Long,read,11
+20240612,Nguyễn Minh Hiếu,read,4
+20240613,Đường Minh Quân,read,10
+20240615,Nguyễn Đình Thiên Huy,read,10
+20240610,Vũ Hữu Sỹ,read,4
+20240611,Vũ Khắc Long,read,1
+20240614,Nguyễn Địch Nhật Minh,read,4
+20240614,Đinh Việt Thành,read,7
+20240611,Nguyễn Duy Hưng,read,4
+20240615,Nguyễn Quốc Dũng,read,9
+20240611,Lê Minh Phúc,read,6
+20240610,Đào Anh Vũ,read,8
+20240615,Vũ Khắc Long,read,4
+20240615,Lê Bảo Khánh,read,5
+20240614,Phạm Đình Khôi,read,5
+20240610,Ngô Ngọc Tuấn Anh,write,8
+20240612,Dương Quang Giang,read,8
+20240612,Nguyễn Mai Anh,write,19
+20240613,Nguyễn Khoa Đoàn,write,7
+20240612,Nguyễn Khoa Đoàn,write,8
+20240615,Nguyễn Vũ Hòa Bình,write,13
+20240613,Trần Ngọc Bảo,write,8
+20240612,Đỗ Doãn Khắc,read,2
+20240610,Đỗ Thành Đạt,write,14
+20240613,Ngô Ngọc Tuấn Anh,write,3
+20240614,Vũ Hữu Sỹ,read,5
+20240611,Nguyễn Vũ Hòa Bình,write,11
+20240613,Nguyễn Vũ Hòa Bình,write,18
+20240611,Nguyễn Mai Anh,write,1
+20240614,Đỗ Thành Đạt,write,5
+20240611,Trần Ngọc Bảo,write,4
+20240613,Đỗ Thành Đạt,write,4
+20240613,Trần Trung Anh,write,7
+20240611,Nguyễn Khoa Đoàn,write,1
+20240615,Nguyễn Mai Anh,write,2
+20240613,Đỗ Doãn Khắc,read,16
+20240610,Trần Trung Anh,write,10
+20240610,Đỗ Doãn Khắc,read,6
+20240614,Đỗ Doãn Khắc,read,10
+20240610,Dương Quang Giang,read,8
+20240614,Dương Quang Giang,read,5
+20240610,Trần Trung Anh,read,14
+20240615,Ngô Ngọc Tuấn Anh,read,24
+20240612,Ngô Ngọc Tuấn Anh,write,2
+20240613,Ngô Ngọc Tuấn Anh,read,18
+20240614,Trần Ngọc Bảo,read,1
+20240614,Trần Trung Anh,read,5
+20240615,Nguyễn Thành Đạt,read,1
+20240613,Nguyễn Thành Đạt,read,10
+20240614,Trần Ngọc Bảo,write,7
+20240613,Nguyễn Vũ Hòa Bình,read,3
+20240615,Nguyễn Vũ Hòa Bình,read,6
+20240613,Nguyễn Khoa Đoàn,read,1
+20240612,Đỗ Thành Đạt,read,3
+20240614,Đỗ Thành Đạt,read,12
+20240610,Nguyễn Vũ Hòa Bình,read,5
+20240613,Trần Trung Anh,read,3
+20240613,Nguyễn Mai Anh,read,3
+20240615,Đỗ Thành Đạt,read,13
+20240612,Trần Ngọc Bảo,read,6
+20240610,Đỗ Thành Đạt,read,15
+20240614,Nguyễn Thành Đạt,read,7
