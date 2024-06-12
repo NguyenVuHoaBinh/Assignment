@@ -62,11 +62,6 @@ public class Producer {
         }
     }
 
-    private static String getKey (String [] fields) {
-        if (Integer.parseInt(fields[0]) % 3 == 0)
-            return "selected";
-        else return "other";
-    }
 
     private static void sendBatch(KafkaProducer<String, String> producer, List<ProducerRecord<String, String>> batchRecords) {
         for (ProducerRecord<String, String> record : batchRecords) {
@@ -75,3 +70,4 @@ public class Producer {
         producer.flush();
     }
 }
+

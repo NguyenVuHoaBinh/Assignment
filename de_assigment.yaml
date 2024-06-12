@@ -148,6 +148,7 @@ services:
     volumes:
       - hadoop_namenode:/hadoop/dfs/name
       - $PWD/hadoop/hadoop_home:/home
+      - ./data:/hadoop_data/data
     environment:
       - CLUSTER_NAME=test
     env_file:
@@ -248,3 +249,5 @@ volumes:
   hadoop_datanode3:
   hadoop_historyserver:
   
+
+ 
